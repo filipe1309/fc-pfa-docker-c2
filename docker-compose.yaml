@@ -1,10 +1,15 @@
 version: "3"
 
 services:
-    pfa-docker-mysql:
-        build: ./mysql
+    pfa-docker-c2-mysql:
+        image: mysql:8.0.24
+        environment:
+            - MYSQL_DATABASE=fullcycle
+            - MYSQL_ROOT_PASSWORD=root
+            - LANG=C.UTF-8
         volumes:
-            - ./mysql/db:/var/lib/mysql
+            - ./mysql/dbdata:/var/lib/mysql
+            - ./mysql/sql-scripts/:/docker-entrypoint-initdb.d/
 
     pfa-docker-node:
         build: ./node

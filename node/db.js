@@ -2,7 +2,7 @@ module.exports = (async() => {
     const mysql = require('mysql2/promise');
 
     const connection = await mysql.createConnection({
-        host: 'pfa-docker-mysql',
+        host: 'pfa-docker-c2-mysql',
         user: 'root',
         password: 'root',
         database: 'fullcycle',
