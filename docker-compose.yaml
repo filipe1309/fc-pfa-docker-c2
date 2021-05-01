@@ -19,9 +19,9 @@ services:
             - pfa-docker-c2-mysql
         command: sh -c "dockerize -wait tcp://pfa-docker-c2-mysql:3306 -timeout 300s -wait-retry-interval 30s nodemon index.js"
 
-    pfa-docker-nginx:
+    pfa-docker-c2-nginx:
         build: ./nginx
         ports:
             - 8080:80
         depends_on:
-            - pfa-docker-node
+            - pfa-docker-c2-node
