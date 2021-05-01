@@ -29,6 +29,8 @@ This project was developed following [FullCycle's PFA](https://portal.code.educa
 ## :computer: Technologies
 
 -   [Docker](https://www.docker.com/)
+-   [Docker Compose](https://docs.docker.com/compose/)
+-   [Dockerize](https://github.com/jwilder/dockerize)
 -   [Node.js](https://nodejs.org/en/)
 -   [Nginx](https://www.nginx.com/)
 -   [MySQL](https://www.mysql.com/)
@@ -37,6 +39,7 @@ This project was developed following [FullCycle's PFA](https://portal.code.educa
 ## :scroll: Requirements
 
 -   [Docker](https://www.docker.com/)
+-   [Docker Compose](https://docs.docker.com/compose/)
 
 ## :cd: Installation
 
