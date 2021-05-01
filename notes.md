@@ -32,3 +32,8 @@ $ docker run --rm --init -it --network pfa-docker --name pfa-docker-node -v $(pw
 
 docker-compose up
 docker-compose down
+
+https://github.com/jwilder/dockerize
+
+apt update && apt install iputils-ping -y
+ping pfa-docker-c2-node
