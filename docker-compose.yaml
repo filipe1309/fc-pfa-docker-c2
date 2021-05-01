@@ -10,6 +10,8 @@ services:
         volumes:
             - ./mysql/dbdata:/var/lib/mysql
             - ./mysql/sql-scripts/:/docker-entrypoint-initdb.d/
+        networks:
+            - app-db
 
     pfa-docker-c2-node:
         build: ./node
@@ -17,11 +19,22 @@ services:
             - ./node:/usr/src/app
         depends_on:
             - pfa-docker-c2-mysql
-        command: sh -c "dockerize -wait tcp://pfa-docker-c2-mysql:3306 -timeout 300s -wait-retry-interval 30s nodemon index.js"
+        entrypoint: dockerize -wait tcp://pfa-docker-c2-mysql:3306 -timeout 300s -wait-retry-interval 5s
+        command: nodemon index.js
+        networks:
+            - app-db
+            - app-webserver
 
     pfa-docker-c2-nginx:
         build: ./nginx
+        restart: always
         ports:
-            - 8080:80
+            - 8000:80
         depends_on:
             - pfa-docker-c2-node
+        networks:
+            - app-webserver
+
+networks:
+    app-db:
+    app-webserver:
