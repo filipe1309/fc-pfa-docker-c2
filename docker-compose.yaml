@@ -17,6 +17,7 @@ services:
         build: ./node
         volumes:
             - ./node:/usr/src/app
+            - /usr/src/app/node_modules
         depends_on:
             - pfa-docker-c2-mysql
         entrypoint: dockerize -wait tcp://pfa-docker-c2-mysql:3306 -timeout 300s -wait-retry-interval 5s
