@@ -28,7 +28,8 @@ services:
 
     pfa-docker-c2-nginx:
         build: ./nginx
-        restart: always
+        entrypoint: dockerize -wait tcp://pfa-docker-c2-node:3000 -timeout 100s /docker-entrypoint.sh
+        command: nginx -g 'daemon off;'
         ports:
             - 8000:80
         depends_on:
